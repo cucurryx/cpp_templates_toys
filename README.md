@@ -1,2 +1,7 @@
 # cpp_templates_toys
-Some interesting and useful toys and tools implemented by C++ templates.
+
+学习C++模板的一些小玩具和工具。
+
+- [ ] a type classification tools
+- [ ] a smart pointer
+- [ ] a tuple
