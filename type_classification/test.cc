@@ -9,12 +9,15 @@ void TestBuildIn(const T &val) {
     } else {
         if (CompoundType<T>::kIsPointer) {
             std::cout << "pointer type" << std::endl;
-        } else if (CompoundType<T>::kIsReference) {
+        } 
+        if (CompoundType<T>::kIsReference) {
             std::cout << "reference type" << std::endl;
-        } else if (CompoundType<T>::kIsArray) {
+        }
+        if (CompoundType<T>::kIsArray) {
             std::cout << "array type" << std::endl;
-        } else {
-            std::cout << "TODO" << std::endl;
+        } 
+        if (CompoundType<T>::kIsFunction) {
+            std::cout << "function type" << std::endl;
         }
     }
 }
@@ -23,6 +26,10 @@ class Test {
 
 };
 
+void test_fun() {
+
+}
+
 int main() {
     TestBuildIn(10);
     TestBuildIn("helloworld"); //should be array type
@@ -30,9 +37,9 @@ int main() {
     TestBuildIn(-3.14159);
     TestBuildIn(true);
 
-    // TestBuildIn(std::cin);
-    // TestBuildIn(std::cout);
-    // TestBuildIn(Test());
+    TestBuildIn(std::cin);
+    TestBuildIn(std::cout);
+    TestBuildIn(Test());
 
     int a = 10;
     TestBuildIn(&a);
@@ -41,6 +48,11 @@ int main() {
 
     int c[1] = {0};
     TestBuildIn(c); 
+    int d[0];
+    TestBuildIn(d);
+
+    TestBuildIn(test_fun);
+
 
     return 0;
 }

@@ -11,7 +11,7 @@ public:
 };
 
 
-#define MAKE_BUILD_IN_TYPE(T)   \
+#define MARK_BUILD_IN_TYPE(T)   \
     template <>                 \
     class IsBuildInType<T> {    \
     public:                     \
@@ -22,30 +22,30 @@ public:
     };                              
 
 //void
-MAKE_BUILD_IN_TYPE(void)
+MARK_BUILD_IN_TYPE(void)
 
 //bool
-MAKE_BUILD_IN_TYPE(bool)
+MARK_BUILD_IN_TYPE(bool)
 
 //characters
-MAKE_BUILD_IN_TYPE(char)
-MAKE_BUILD_IN_TYPE(signed char)
-MAKE_BUILD_IN_TYPE(unsigned char)
-MAKE_BUILD_IN_TYPE(wchar_t)
+MARK_BUILD_IN_TYPE(char)
+MARK_BUILD_IN_TYPE(signed char)
+MARK_BUILD_IN_TYPE(unsigned char)
+MARK_BUILD_IN_TYPE(wchar_t)
 
 //integers
-MAKE_BUILD_IN_TYPE(signed short)
-MAKE_BUILD_IN_TYPE(unsigned short)
-MAKE_BUILD_IN_TYPE(signed int)
-MAKE_BUILD_IN_TYPE(unsigned int)
-MAKE_BUILD_IN_TYPE(signed long)
-MAKE_BUILD_IN_TYPE(unsigned long)
-MAKE_BUILD_IN_TYPE(signed long long)
-MAKE_BUILD_IN_TYPE(unsigned long long)
+MARK_BUILD_IN_TYPE(signed short)
+MARK_BUILD_IN_TYPE(unsigned short)
+MARK_BUILD_IN_TYPE(signed int)
+MARK_BUILD_IN_TYPE(unsigned int)
+MARK_BUILD_IN_TYPE(signed long)
+MARK_BUILD_IN_TYPE(unsigned long)
+MARK_BUILD_IN_TYPE(signed long long)
+MARK_BUILD_IN_TYPE(unsigned long long)
 
 //float numbers
-MAKE_BUILD_IN_TYPE(float)
-MAKE_BUILD_IN_TYPE(double)
-MAKE_BUILD_IN_TYPE(long double)
+MARK_BUILD_IN_TYPE(float)
+MARK_BUILD_IN_TYPE(double)
+MARK_BUILD_IN_TYPE(long double)
 
-#undef MAKE_BUILD_IN_TYPE
+#undef MARK_BUILD_IN_TYPE
