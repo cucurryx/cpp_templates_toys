@@ -1,26 +1,8 @@
-#include "basic_type.h"
-#include "compound_type.h"
+#include "type.h"
 #include <iostream>
 
-template <typename T>
-void TestBuildIn(const T &val) {
-    if (IsBuildInType<T>::kYes) {
-        std::cout << "build-in type" << std::endl;
-    } else {
-        if (CompoundType<T>::kIsPointer) {
-            std::cout << "pointer type" << std::endl;
-        } 
-        if (CompoundType<T>::kIsReference) {
-            std::cout << "reference type" << std::endl;
-        }
-        if (CompoundType<T>::kIsArray) {
-            std::cout << "array type" << std::endl;
-        } 
-        if (CompoundType<T>::kIsFunction) {
-            std::cout << "function type" << std::endl;
-        }
-    }
-}
+#define PRINT_TYPE(VAL) \
+    std::cout << GetType(VAL) << std::endl;
 
 class Test {
 
@@ -31,28 +13,25 @@ void test_fun() {
 }
 
 int main() {
-    TestBuildIn(10);
-    TestBuildIn("helloworld"); //should be array type
-    TestBuildIn('a');
-    TestBuildIn(-3.14159);
-    TestBuildIn(true);
 
-    TestBuildIn(std::cin);
-    TestBuildIn(std::cout);
-    TestBuildIn(Test());
+    //build-in
+    PRINT_TYPE(1);
+    PRINT_TYPE(-1.11);
+    PRINT_TYPE('a');
 
-    int a = 10;
-    TestBuildIn(&a);
-    int &b = a;
-    TestBuildIn<int&>(b);
+    //pointer
 
-    int c[1] = {0};
-    TestBuildIn(c); 
-    int d[0];
-    TestBuildIn(d);
+    //reference
 
-    TestBuildIn(test_fun);
+    //pointer member
 
+    //array
+
+    //function
+
+    //enum
+
+    //class
 
     return 0;
 }
