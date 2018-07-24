@@ -24,7 +24,7 @@ std::string GetType() {
     if (Type<T>::kIsArrayType) {
         type += "array type, bottom type:\n";
         type += "\t";
-        // // type += GetType<CompoundType<T>::BottomType>();
+        type += GetType<typename CompoundType<T>::BottomType>();
     }
     if (Type<T>::kIsBuildInType) {
         type += "build-in type";
@@ -41,17 +41,17 @@ std::string GetType() {
     if (Type<T>::kIsPointerMemberType) {
         type += "pointer member type, bottom type:\n";
         type += "\t";
-        // // type += GetType<CompoundType<T>::BottomType>();    
+        type += GetType<typename CompoundType<T>::BottomType>();    
     }
     if (Type<T>::kIsPointerType) {
         type += "pointer type, bottom type:\n";
         type += "\t";
-        // // type += GetType<CompoundType<T>::BottomType>();   
+        type += GetType<typename CompoundType<T>::BottomType>();   
     }
     if (Type<T>::kIsReferenceType) {
         type += "reference type, bottom type:\n";
         type += "\t";
-        // type += GetType<CompoundType<T>::BottomType>();   
+        type += GetType<typename CompoundType<T>::BottomType>();   
     }
     return type;
 }
