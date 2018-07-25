@@ -8,10 +8,13 @@
 template <typename T>
 class IsFunctionType {
 private:
-    typedef char One; //sizeof(char) == 1
-    typedef struct {
+    //sizeof(char) == 1
+    using One = char;
+
+    //sizeof(Two) == 2
+    using Two = struct {
         char a[2];
-    } Two;            //sizeof(Two) == 2
+    };           
     
     template <typename X>
     static One test(...); //if choose this template, it's function or const void or void or reference.
@@ -73,9 +76,9 @@ public:
         kIsPointerMember = 0
     };
 
-    typedef T BaseType;
-    typedef T BottomType;
-    typedef CompoundType<void> ClassType;
+    using BaseType = T;
+    using BottomType = T;
+    using ClassType = CompoundType<void>;
 };
 
 //pointer
@@ -90,9 +93,9 @@ public:
         kIsPointerMember = 0
     };
 
-    typedef T BaseType;
-    typedef T BottomType;
-    typedef CompoundType<void> ClassType;
+    using BaseType = T;
+    using BottomType = T;
+    using ClassType = CompoundType<void>;
 };
 
 //reference
@@ -107,9 +110,9 @@ public:
         kIsPointerMember = 0
     };
 
-    typedef T BaseType;
-    typedef T BottomType;
-    typedef CompoundType<void> ClassType;
+    using BaseType = T;
+    using BottomType = T;
+    using ClassType = CompoundType<void>;
 };
 
 // empty array
@@ -124,9 +127,9 @@ public:
         kIsPointerMember = 0
     };
 
-    typedef T BaseType;
-    typedef typename CompoundType<T>::BottomType BottomType;
-    typedef CompoundType<void> ClassType;
+    using BaseType = T;
+    using BottomType = typename CompoundType<T>::BottomType;
+    using ClassType = CompoundType<void>;
 };
 
 //array
@@ -141,9 +144,9 @@ public:
         kIsPointerMember = 0
     };
 
-    typedef T BaseType;
-    typedef typename CompoundType<T>::BottomType BottomType;
-    typedef CompoundType<void> ClassType;
+    using BaseType = T;
+    using BottomType = typename CompoundType<T>::BottomType;
+    using ClassType = CompoundType<void>;
 };
 
 //member pointer
@@ -158,9 +161,9 @@ public:
         kIsPointerMember = 1
     };
 
-    typedef T BaseType;
-    typedef typename CompoundType<T>::BottomType BottomType;
-    typedef C ClassType;
+    using BaseType = T;
+    using BottomType = typename CompoundType<T>::BottomType;
+    using ClassType = C;
 };
 
 // functions
@@ -175,9 +178,9 @@ public:
         kIsPointerMember = 0
     };
 
-    typedef R BaseType();
-    typedef R BottomType();
-    typedef CompoundType<void> ClassType;
+    using BaseType = R();
+    using BottomType = R();
+    using ClassType = CompoundType<void>;
 };
 
 template <typename R, typename P1>
@@ -191,9 +194,9 @@ public:
         kIsPointerMember = 0
     };
 
-    typedef R BaseType(P1);
-    typedef R BottomType(P1);
-    typedef CompoundType<void> ClassType;
+    using BaseType = R(P1);
+    using BottomType = R(P1);
+    using ClassType = CompoundType<void>;
 };
 
 template <typename R, typename P1>
@@ -207,7 +210,7 @@ public:
         kIsPointerMember = 0
     };
 
-    typedef R BaseType(P1);
-    typedef R BottomType(P1);
-    typedef CompoundType<void> ClassType;
+    using BaseType = R(P1);
+    using BottomType = R(P1);
+    using ClassType = CompoundType<void>;
 };

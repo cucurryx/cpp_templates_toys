@@ -1,13 +1,13 @@
 #include "basic_type.h"
 #include "compound_type.h"
 
-// A type whose size is two
-typedef struct {
-    char a[2];
-} Two;
-
 // A type whose size is one
-typedef char One;
+using One = char;
+
+// A type whose size is two
+using Two = struct {
+    char a[2];
+};
 
 #define CHECK_ENUM(T) \
     One check_enum(T);
